@@ -10,6 +10,10 @@ module AirbrakeAPI
         if env[:body].errors && env[:body].errors.error
           raise AirbrakeError.new(env[:body].errors.error)
         end
+
+        if env[:body].error
+          raise AirbrakeError.new(env[:body].error)
+        end
       end
 
     end
